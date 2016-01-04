@@ -185,6 +185,61 @@
 
       <div class="body-wrap">
   
+    <article id="post-部署Hexo到GitHub上" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/04/部署Hexo到GitHub上/" class="article-date">
+  	<time datetime="2016-01-04T02:47:34.000Z" itemprop="datePublished">2016-01-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/04/部署Hexo到GitHub上/">部署Hexo到GitHub上</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本地的博客已经搭建好了，如何能让别人从网上访问到你的博客？只要将你的本地博客deploy到GitHub上就好。输入以下指令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<p>然后打开博客目录的_config.yml文件，设置deploy的type为git，repository(repo)<br>为：<br>github.com/你的id/你的id.github.io.git（需要在type和repo后面加上一个空格再填写）。最后在你的Hexo目录中找到source文件夹，在其中新建一个文件CNAME，没有后缀名（建议使用Sublime Text新建），内容为你的域名（即ＸXXXXX．XXXXXX，不要加ＷＷＷ之类的前缀），保存。输入以下指令：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span><span class="class">.hexo</span> g</span><br><span class="line"><span class="number">2</span><span class="class">.hexo</span> deploy<span class="comment">//可简写为 hexo d</span></span><br></pre></td></tr></table></figure></p>
+<p>在浏览器中输入你自己的域名就可以访问你自己的博客啦！</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
