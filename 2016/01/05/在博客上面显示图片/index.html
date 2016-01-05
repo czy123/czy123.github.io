@@ -4,21 +4,22 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>部署Hexo到GitHub上 | Chen&#39;Blogs</title>
+  <title>在博客上面显示图片 | Chen&#39;Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本地的博客已经搭建好了，如何能让别人从网上访问到你的博客？只要将你的本地博客deploy到GitHub上就好。输入以下指令：11.npm install hexo-deployer-git --save
-然后打开博客目录的_config.yml文件，设置deploy的type为git，repository(repo)为：github.com/你的id/你的id.github.io.git（需要在t">
+  <meta name="description" content="由于编辑文章使用的是sublime无法直接插入图片，所以要在博客上面显示图片就需要找到图片位置显示＃如下1&amp;lt;!-- &amp;lt;img src=&quot;img/minren.jpg&quot; alt=&quot;ナルト&quot; height=&quot;50&quot; width=&quot;50&quot;&amp;gt; --&amp;gt;
+＃就会显示">
 <meta property="og:type" content="article">
-<meta property="og:title" content="部署Hexo到GitHub上">
-<meta property="og:url" content="http://yoursite.com/2016/01/04/部署Hexo到GitHub上/index.html">
+<meta property="og:title" content="在博客上面显示图片">
+<meta property="og:url" content="http://yoursite.com/2016/01/05/在博客上面显示图片/index.html">
 <meta property="og:site_name" content="Chen'Blogs">
-<meta property="og:description" content="本地的博客已经搭建好了，如何能让别人从网上访问到你的博客？只要将你的本地博客deploy到GitHub上就好。输入以下指令：11.npm install hexo-deployer-git --save
-然后打开博客目录的_config.yml文件，设置deploy的type为git，repository(repo)为：github.com/你的id/你的id.github.io.git（需要在t">
-<meta property="og:updated_time" content="2016-01-05T02:44:59.000Z">
+<meta property="og:description" content="由于编辑文章使用的是sublime无法直接插入图片，所以要在博客上面显示图片就需要找到图片位置显示＃如下1&amp;lt;!-- &amp;lt;img src=&quot;img/minren.jpg&quot; alt=&quot;ナルト&quot; height=&quot;50&quot; width=&quot;50&quot;&amp;gt; --&amp;gt;
+＃就会显示">
+<meta property="og:image" content="http://yoursite.com/img/minren.jpg">
+<meta property="og:updated_time" content="2016-01-05T02:55:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="部署Hexo到GitHub上">
-<meta name="twitter:description" content="本地的博客已经搭建好了，如何能让别人从网上访问到你的博客？只要将你的本地博客deploy到GitHub上就好。输入以下指令：11.npm install hexo-deployer-git --save
-然后打开博客目录的_config.yml文件，设置deploy的type为git，repository(repo)为：github.com/你的id/你的id.github.io.git（需要在t">
+<meta name="twitter:title" content="在博客上面显示图片">
+<meta name="twitter:description" content="由于编辑文章使用的是sublime无法直接插入图片，所以要在博客上面显示图片就需要找到图片位置显示＃如下1&amp;lt;!-- &amp;lt;img src=&quot;img/minren.jpg&quot; alt=&quot;ナルト&quot; height=&quot;50&quot; width=&quot;50&quot;&amp;gt; --&amp;gt;
+＃就会显示">
   
     <link rel="alternative" href="/atom.xml" title="Chen&#39;Blogs" type="application/atom+xml">
   
@@ -187,11 +188,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-部署Hexo到GitHub上" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-在博客上面显示图片" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/04/部署Hexo到GitHub上/" class="article-date">
-  	<time datetime="2016-01-04T02:47:34.000Z" itemprop="datePublished">2016-01-04</time>
+      <a href="/2016/01/05/在博客上面显示图片/" class="article-date">
+  	<time datetime="2016-01-05T02:46:02.000Z" itemprop="datePublished">2016-01-05</time>
 </a>
     </div>
   
@@ -204,7 +205,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      部署Hexo到GitHub上
+      在博客上面显示图片
     </h1>
   
 
@@ -220,9 +221,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本地的博客已经搭建好了，如何能让别人从网上访问到你的博客？只要将你的本地博客deploy到GitHub上就好。输入以下指令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
-<p>然后打开博客目录的_config.yml文件，设置deploy的type为git，repository(repo)<br>为：<br>github.com/你的id/你的id.github.io.git（需要在type和repo后面加上一个空格再填写）。最后在你的Hexo目录中找到source文件夹，在其中新建一个文件CNAME，没有后缀名（建议使用Sublime Text新建），内容为你的域名（即ＸXXXXX．XXXXXX，不要加ＷＷＷ之类的前缀），保存。输入以下指令：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span><span class="class">.hexo</span> g</span><br><span class="line"><span class="number">2</span><span class="class">.hexo</span> deploy<span class="comment">//可简写为 hexo d</span></span><br></pre></td></tr></table></figure></p>
-<p>在浏览器中输入你自己的域名就可以访问你自己的博客啦！</p>
+        <p>由于编辑文章使用的是sublime无法直接插入图片，所以要在博客上面显示图片就需要找到图片位置显示<br>＃如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- &lt;img src=<span class="string">"img/minren.jpg"</span> alt=<span class="string">"ナルト"</span> height=<span class="string">"50"</span> width=<span class="string">"50"</span>&gt; --&gt;</span><br></pre></td></tr></table></figure></p>
+<p>＃就会显示<br><img src="img/minren.jpg" alt="ナルト" height="50" width="50"> </p>
 
       
     </div>
@@ -232,18 +232,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/05/在博客上面显示图片/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/05/Behavior-Designer加强版的playmaker/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          在博客上面显示图片
+          Behavior Designer加强版的playmaker
         
       </div>
     </a>
   
   
-    <a href="/2016/01/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2016/01/04/部署Hexo到GitHub上/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">部署Hexo到GitHub上</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -278,7 +278,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="部署Hexo到GitHub上" data-title="部署Hexo到GitHub上" data-url="http://yoursite.com/2016/01/04/部署Hexo到GitHub上/"></div>
+	<div class="ds-thread" data-thread-key="在博客上面显示图片" data-title="在博客上面显示图片" data-url="http://yoursite.com/2016/01/05/在博客上面显示图片/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
