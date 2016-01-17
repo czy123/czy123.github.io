@@ -113,7 +113,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/游戏策划案/" style="font-size: 10px;">游戏策划案</a> <a href="/tags/转载/" style="font-size: 10px;">转载</a>
+						<a href="/tags/unity/" style="font-size: 10px;">unity</a> <a href="/tags/游戏策划案/" style="font-size: 10px;">游戏策划案</a> <a href="/tags/转载/" style="font-size: 10px;">转载</a>
 					</div>
 				</section>
 				
@@ -185,6 +185,71 @@
 
       <div class="body-wrap">
   
+    <article id="post-ngui和unity5-2-2的bug" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/17/ngui和unity5-2-2的bug/" class="article-date">
+  	<time datetime="2016-01-17T12:51:01.000Z" itemprop="datePublished">2016-01-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/17/ngui和unity5-2-2的bug/">ngui和unity5.2.2的bug</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Unity 5.2.1 + NGUI 3.9.2</p>
+<p>经常 crash 在保存场景的时候</p>
+</blockquote>
+<h1 id="u5B8C_u7F8E_u89E3_u51B3_u65B9_u6848"><a href="#u5B8C_u7F8E_u89E3_u51B3_u65B9_u6848" class="headerlink" title="完美解决方案"></a>完美解决方案</h1><blockquote>
+<p>修改ngui uilabel代码<br>line 1139 : #if !UNITY_4_3 &amp;&amp; !UNITY_4_5 &amp;&amp; !UNITY_4_6</p>
+<p>修改成 : if !UNITY_4_3 &amp;&amp; !UNITY_4_5 &amp;&amp; !UNITY_4_6 &amp;&amp; !UNITY_5</p>
+<p>但是还有点问题是ngui使用动态文字，我感觉是ngui的问题，目前解决方案是把3.8.0的修改到3.9.2</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/">unity</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-欢乐点点点" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -202,7 +267,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/09/欢乐点点点/">探索喵星际</a>
+      <a class="article-title" href="/2016/01/09/欢乐点点点/">喵喵探索记</a>
     </h1>
   
 
