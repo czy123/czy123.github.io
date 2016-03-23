@@ -4,18 +4,78 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>2016第一个博客 | Chen&#39;Blogs</title>
+  <title>C# Struct 和Class 区别 | Chen&#39;Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="修改hexo博客主题还是失败了～～～～，以后的常驻之地，继续摆弄这个主题">
+  <meta name="description" content="Class
+引用
+可以为null
+实例化在堆上
+构造函数可以无参数
+必须new来实例化
+
+Struct
+值类型
+不能为null
+实例化在栈上
+构造函数必须有参数
+可new ,可不new 来实例化
+
+堆
+程序运行期间动态分配的空间
+无序的，是一片不连续的内存域，要用户自己来控制和释放(GC)
+
+栈
+编译期间分配好的内存空间，因此要在代码中明确定义栈的大小
+要管存储顺序，保持先进后出的原则，是一片连续">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2016第一个博客">
-<meta property="og:url" content="http://yoursite.com/2016/01/01/2016第一个博客/index.html">
+<meta property="og:title" content="C# Struct 和Class 区别">
+<meta property="og:url" content="http://yoursite.com/2016/03/23/C-Struct-和Class-区别/index.html">
 <meta property="og:site_name" content="Chen'Blogs">
-<meta property="og:description" content="修改hexo博客主题还是失败了～～～～，以后的常驻之地，继续摆弄这个主题">
-<meta property="og:updated_time" content="2016-01-01T07:41:30.000Z">
+<meta property="og:description" content="Class
+引用
+可以为null
+实例化在堆上
+构造函数可以无参数
+必须new来实例化
+
+Struct
+值类型
+不能为null
+实例化在栈上
+构造函数必须有参数
+可new ,可不new 来实例化
+
+堆
+程序运行期间动态分配的空间
+无序的，是一片不连续的内存域，要用户自己来控制和释放(GC)
+
+栈
+编译期间分配好的内存空间，因此要在代码中明确定义栈的大小
+要管存储顺序，保持先进后出的原则，是一片连续">
+<meta property="og:updated_time" content="2016-03-23T06:21:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2016第一个博客">
-<meta name="twitter:description" content="修改hexo博客主题还是失败了～～～～，以后的常驻之地，继续摆弄这个主题">
+<meta name="twitter:title" content="C# Struct 和Class 区别">
+<meta name="twitter:description" content="Class
+引用
+可以为null
+实例化在堆上
+构造函数可以无参数
+必须new来实例化
+
+Struct
+值类型
+不能为null
+实例化在栈上
+构造函数必须有参数
+可new ,可不new 来实例化
+
+堆
+程序运行期间动态分配的空间
+无序的，是一片不连续的内存域，要用户自己来控制和释放(GC)
+
+栈
+编译期间分配好的内存空间，因此要在代码中明确定义栈的大小
+要管存储顺序，保持先进后出的原则，是一片连续">
   
     <link rel="alternative" href="/atom.xml" title="Chen&#39;Blogs" type="application/atom+xml">
   
@@ -184,11 +244,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-2016第一个博客" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-C-Struct-和Class-区别" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/01/2016第一个博客/" class="article-date">
-  	<time datetime="2016-01-01T07:39:26.000Z" itemprop="datePublished">2016-01-01</time>
+      <a href="/2016/03/23/C-Struct-和Class-区别/" class="article-date">
+  	<time datetime="2016-03-23T05:42:35.000Z" itemprop="datePublished">2016-03-23</time>
 </a>
     </div>
   
@@ -201,7 +261,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      2016第一个博客
+      C# Struct 和Class 区别
     </h1>
   
 
@@ -209,6 +269,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -217,7 +281,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>修改hexo博客主题还是失败了～～～～，以后的常驻之地，继续摆弄这个主题</p>
+        <h1 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h1><ul>
+<li>引用</li>
+<li>可以为null</li>
+<li>实例化在堆上</li>
+<li>构造函数可以无参数</li>
+<li>必须new来实例化</li>
+</ul>
+<h1 id="Struct"><a href="#Struct" class="headerlink" title="Struct"></a>Struct</h1><ul>
+<li>值类型</li>
+<li>不能为null</li>
+<li>实例化在栈上</li>
+<li>构造函数必须有参数</li>
+<li>可new ,可不new 来实例化</li>
+</ul>
+<h2 id="u5806"><a href="#u5806" class="headerlink" title="堆"></a>堆</h2><ul>
+<li>程序运行期间动态分配的空间</li>
+<li>无序的，是一片不连续的内存域，要用户自己来控制和释放(GC)</li>
+</ul>
+<h2 id="u6808"><a href="#u6808" class="headerlink" title="栈"></a>栈</h2><ul>
+<li>编译期间分配好的内存空间，因此要在代码中明确定义栈的大小</li>
+<li>要管存储顺序，保持先进后出的原则，是一片连续的内存域，有系统自动分配和维护</li>
+</ul>
 
       
     </div>
@@ -227,15 +312,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/01/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Hello World
-        
-      </div>
-    </a>
   
+    <a href="/2016/02/16/Soomla-Unity内ios付费插件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Soomla Unity内ios付费插件(免费插件)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -268,7 +349,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016第一个博客" data-title="2016第一个博客" data-url="http://yoursite.com/2016/01/01/2016第一个博客/"></div>
+	<div class="ds-thread" data-thread-key="C-Struct-和Class-区别" data-title="C# Struct 和Class 区别" data-url="http://yoursite.com/2016/03/23/C-Struct-和Class-区别/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
