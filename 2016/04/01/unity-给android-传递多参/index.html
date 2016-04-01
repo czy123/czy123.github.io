@@ -4,17 +4,30 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: unity | Chen&#39;Blogs</title>
+  <title>unity 给android 传递多参 | Chen&#39;Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Chen'Blogs">
-<meta property="og:url" content="http://yoursite.com/tags/unity/index.html">
+  <meta name="description" content="androidjavaclass12AndroidJavaClass jc = new 	AndroidJavaClass(&quot;com.au.classroom.UnityPlayerActivity&quot;);	jc.CallStatic(&quot;TryClass&quot;,&quot;31&quot;,32.0f);
+
+在callstatic param object[]  传入对应个数和类型的参数
+
+AndroidJNI123456">
+<meta property="og:type" content="article">
+<meta property="og:title" content="unity 给android 传递多参">
+<meta property="og:url" content="http://yoursite.com/2016/04/01/unity-给android-传递多参/index.html">
 <meta property="og:site_name" content="Chen'Blogs">
-<meta property="og:description">
+<meta property="og:description" content="androidjavaclass12AndroidJavaClass jc = new 	AndroidJavaClass(&quot;com.au.classroom.UnityPlayerActivity&quot;);	jc.CallStatic(&quot;TryClass&quot;,&quot;31&quot;,32.0f);
+
+在callstatic param object[]  传入对应个数和类型的参数
+
+AndroidJNI123456">
+<meta property="og:updated_time" content="2016-04-01T09:11:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chen'Blogs">
-<meta name="twitter:description">
+<meta name="twitter:title" content="unity 给android 传递多参">
+<meta name="twitter:description" content="androidjavaclass12AndroidJavaClass jc = new 	AndroidJavaClass(&quot;com.au.classroom.UnityPlayerActivity&quot;);	jc.CallStatic(&quot;TryClass&quot;,&quot;31&quot;,32.0f);
+
+在callstatic param object[]  传入对应个数和类型的参数
+
+AndroidJNI123456">
   
     <link rel="alternative" href="/atom.xml" title="Chen&#39;Blogs" type="application/atom+xml">
   
@@ -183,115 +196,121 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-unity-给android-传递多参" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2016/04/01/unity-给android-传递多参/" class="article-date">
+  	<time datetime="2016-04-01T08:50:25.000Z" itemprop="datePublished">2016-04-01</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      unity 给android 传递多参
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/">unity</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/01/unity-给android-传递多参/" class="archive-article-date">
-  	<time datetime="2016-04-01T08:50:25.000Z" itemprop="datePublished">Apr 1</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/01/unity-给android-传递多参/">unity 给android 传递多参</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="androidjavaclass"><a href="#androidjavaclass" class="headerlink" title="androidjavaclass"></a>androidjavaclass</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AndroidJavaClass jc = <span class="keyword">new</span> 	AndroidJavaClass(<span class="string">"com.au.classroom.UnityPlayerActivity"</span>);</span><br><span class="line">	jc.CallStatic(<span class="string">"TryClass"</span>,<span class="string">"31"</span>,<span class="number">32.0f</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在callstatic param object[]  传入对应个数和类型的参数</li>
+</ul>
+<h1 id="AndroidJNI"><a href="#AndroidJNI" class="headerlink" title="AndroidJNI"></a>AndroidJNI</h1><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">IntPtr</span> clazzPtr = <span class="type">AndroidJNI</span>.<span class="type">FindClass</span>(<span class="string">"com.au.classroom.UnityPlayerActivity"</span>);</span><br><span class="line"><span class="type">IntPtr</span> methodPtr = <span class="type">AndroidJNI</span>.<span class="type">GetStaticMethodID</span>(clazzPtr, <span class="string">"SaveAchievement"</span>, <span class="string">"(I)V"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> args = <span class="keyword">new</span> <span class="class"><span class="keyword">object</span>[</span><span class="number">1</span>];</span><br><span class="line">args[<span class="number">0</span>] = rightcount;</span><br><span class="line"></span><br><span class="line"><span class="type">AndroidJNI</span>.<span class="type">CallStaticVoidMethod</span>(clazzPtr, methodPtr, <span class="type">AndroidJNIHelper</span>.<span class="type">CreateJNIArgArray</span>(args));</span><br></pre></td></tr></table></figure>
+<ul>
+<li>clazzPtr 获取java类</li>
+<li>methodPtr 获取对应的方法<ul>
+<li>第二个参数为方法，第三个参数为对应方法里面的参数类型 比如 string 对应 Ljava/lang/String ； int 对应 (I)V ;两个int就为 （II）V</li>
+</ul>
+</li>
+<li>AndroidJNI.CallStaticVoidMethod 第三个参数为要传的对应数据</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/">unity</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/02/16/Soomla-Unity内ios付费插件/" class="archive-article-date">
-  	<time datetime="2016-02-16T06:05:00.000Z" itemprop="datePublished">Feb 16</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/16/Soomla-Unity内ios付费插件/">Soomla Unity内ios付费插件(免费插件)</a>
-    </h1>
   
+    <a href="/2016/03/23/C-Struct-和Class-区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C# Struct 和Class 区别</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/">unity</a></li></ul>
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/17/ngui和unity5-2-2的bug/" class="archive-article-date">
-  	<time datetime="2016-01-17T12:51:01.000Z" itemprop="datePublished">Jan 17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/17/ngui和unity5-2-2的bug/">ngui和unity5.2.2的bug</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/">unity</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="unity-给android-传递多参" data-title="unity 给android 传递多参" data-url="http://yoursite.com/2016/04/01/unity-给android-传递多参/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -317,9 +336,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}

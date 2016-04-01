@@ -185,6 +185,75 @@
 
       <div class="body-wrap">
   
+    <article id="post-unity-给android-传递多参" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/01/unity-给android-传递多参/" class="article-date">
+  	<time datetime="2016-04-01T08:50:25.000Z" itemprop="datePublished">2016-04-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/01/unity-给android-传递多参/">unity 给android 传递多参</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="androidjavaclass"><a href="#androidjavaclass" class="headerlink" title="androidjavaclass"></a>androidjavaclass</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AndroidJavaClass jc = <span class="keyword">new</span> 	AndroidJavaClass(<span class="string">"com.au.classroom.UnityPlayerActivity"</span>);</span><br><span class="line">	jc.CallStatic(<span class="string">"TryClass"</span>,<span class="string">"31"</span>,<span class="number">32.0f</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在callstatic param object[]  传入对应个数和类型的参数</li>
+</ul>
+<h1 id="AndroidJNI"><a href="#AndroidJNI" class="headerlink" title="AndroidJNI"></a>AndroidJNI</h1><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">IntPtr</span> clazzPtr = <span class="type">AndroidJNI</span>.<span class="type">FindClass</span>(<span class="string">"com.au.classroom.UnityPlayerActivity"</span>);</span><br><span class="line"><span class="type">IntPtr</span> methodPtr = <span class="type">AndroidJNI</span>.<span class="type">GetStaticMethodID</span>(clazzPtr, <span class="string">"SaveAchievement"</span>, <span class="string">"(I)V"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> args = <span class="keyword">new</span> <span class="class"><span class="keyword">object</span>[</span><span class="number">1</span>];</span><br><span class="line">args[<span class="number">0</span>] = rightcount;</span><br><span class="line"></span><br><span class="line"><span class="type">AndroidJNI</span>.<span class="type">CallStaticVoidMethod</span>(clazzPtr, methodPtr, <span class="type">AndroidJNIHelper</span>.<span class="type">CreateJNIArgArray</span>(args));</span><br></pre></td></tr></table></figure>
+<ul>
+<li>clazzPtr 获取java类</li>
+<li>methodPtr 获取对应的方法<ul>
+<li>第二个参数为方法，第三个参数为对应方法里面的参数类型 比如 string 对应 Ljava/lang/String ； int 对应 (I)V ;两个int就为 （II）V</li>
+</ul>
+</li>
+<li>AndroidJNI.CallStaticVoidMethod 第三个参数为要传的对应数据</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/">unity</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-C-Struct-和Class-区别" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -825,59 +894,10 @@
 
 
   
-    <article id="post-2016第一个博客" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2016/01/01/2016第一个博客/" class="article-date">
-  	<time datetime="2016-01-01T07:39:26.000Z" itemprop="datePublished">2016-01-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/01/2016第一个博客/">2016第一个博客</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>修改hexo博客主题还是失败了～～～～，以后的常驻之地，继续摆弄这个主题</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
