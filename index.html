@@ -113,7 +113,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/unity/" style="font-size: 20px;">unity</a> <a href="/tags/游戏策划案/" style="font-size: 10px;">游戏策划案</a> <a href="/tags/转载/" style="font-size: 10px;">转载</a>
+						<a href="/tags/C/" style="font-size: 15px;">C#</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/unity/" style="font-size: 20px;">unity</a> <a href="/tags/游戏策划案/" style="font-size: 10px;">游戏策划案</a> <a href="/tags/转载/" style="font-size: 10px;">转载</a>
 					</div>
 				</section>
 				
@@ -184,6 +184,132 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-c-对象池的简单书写" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/25/c-对象池的简单书写/" class="article-date">
+  	<time datetime="2016-04-25T05:53:10.000Z" itemprop="datePublished">2016-04-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/25/c-对象池的简单书写/">c# 对象池的简单书写</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Object Pool ( http://unitypatterns.com/resource/objectpool/ ) is licensed under:</span></span><br><span class="line"><span class="comment">/* The MIT License (MIT)</span><br><span class="line">Copyright (c) 2013 UnityPatterns</span><br><span class="line">Permission is hereby granted, free of charge, to any person obtaining a copy of</span><br><span class="line">this software and associated documentation files (the “Software”), to deal in the</span><br><span class="line">Software without restriction, including without limitation the rights to use, copy,</span><br><span class="line">modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,</span><br><span class="line">and to permit persons to whom the Software is furnished to do so, subject to the</span><br><span class="line">following conditions:</span><br><span class="line"></span><br><span class="line">The above copyright notice and this permission notice shall be included in all</span><br><span class="line">copies or substantial portions of the Software.</span><br><span class="line"></span><br><span class="line">THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,</span><br><span class="line">INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A</span><br><span class="line">PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT</span><br><span class="line">HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF</span><br><span class="line">CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE</span><br><span class="line">OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">sealed</span> <span class="keyword">class</span> <span class="title">ObjectPool</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">static</span> ObjectPool _instance;</span><br><span class="line"></span><br><span class="line">	Dictionary&lt;Component, List&lt;Component&gt;&gt; objectLookup = <span class="keyword">new</span> Dictionary&lt;Component, List&lt;Component&gt;&gt;();</span><br><span class="line">	Dictionary&lt;Component, Component&gt; prefabLookup = <span class="keyword">new</span> Dictionary&lt;Component, Component&gt;();</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Clear</span>(<span class="params"></span>)</span><br><span class="line">	</span>&#123;</span><br><span class="line">		instance.objectLookup.Clear();</span><br><span class="line">		instance.prefabLookup.Clear();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> CreatePool&lt;T&gt;(T prefab) <span class="keyword">where</span> T : Component</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(prefab==<span class="keyword">null</span>)</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		<span class="keyword">if</span> (!instance.objectLookup.ContainsKey(prefab))</span><br><span class="line">			instance.objectLookup.Add(prefab, <span class="keyword">new</span> List&lt;Component&gt;());</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> T Spawn&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) <span class="keyword">where</span> T : Component</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(prefab==<span class="keyword">null</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">if</span> (instance.objectLookup.ContainsKey(prefab))</span><br><span class="line">		&#123;</span><br><span class="line">			T obj = <span class="keyword">null</span>;</span><br><span class="line">			<span class="keyword">var</span> list = instance.objectLookup[prefab];</span><br><span class="line">			<span class="keyword">if</span> (list.Count &gt; <span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">while</span> (obj == <span class="keyword">null</span> &amp;&amp; list.Count &gt; <span class="number">0</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					obj = list[<span class="number">0</span>] <span class="keyword">as</span> T;</span><br><span class="line">					list.RemoveAt(<span class="number">0</span>);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span> (obj != <span class="keyword">null</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					obj.transform.parent = <span class="keyword">null</span>;</span><br><span class="line">					obj.transform.localPosition = position;</span><br><span class="line">					obj.transform.localRotation = rotation;</span><br><span class="line">					obj.gameObject.SetActive(<span class="keyword">true</span>);</span><br><span class="line">					instance.prefabLookup.Add(obj, prefab);</span><br><span class="line">					obj.SendMessage(<span class="string">"OnSpawned"</span>, <span class="keyword">null</span>, SendMessageOptions.DontRequireReceiver);</span><br><span class="line">					<span class="keyword">return</span> (T)obj;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			obj = (T)Object.Instantiate(prefab, position, rotation);</span><br><span class="line">			obj.name = prefab.name;</span><br><span class="line">			instance.prefabLookup.Add(obj, prefab);</span><br><span class="line">			obj.SendMessage(<span class="string">"OnSpawned"</span>, <span class="keyword">null</span>, SendMessageOptions.DontRequireReceiver);</span><br><span class="line">			<span class="keyword">return</span> (T)obj;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			T obj = <span class="keyword">null</span>;</span><br><span class="line">			obj = (T)Object.Instantiate(prefab, position, rotation);</span><br><span class="line">			obj.name=prefab.name;</span><br><span class="line">			<span class="keyword">return</span> (T)obj;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> T Spawn&lt;T&gt;(T prefab, Vector3 position) <span class="keyword">where</span> T : Component</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> Spawn(prefab, position, Quaternion.identity);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> T Spawn&lt;T&gt;(T prefab) <span class="keyword">where</span> T : Component</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> Spawn(prefab, Vector3.zero, Quaternion.identity);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> Recycle&lt;T&gt;(T obj) <span class="keyword">where</span> T : Component</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (instance.prefabLookup.ContainsKey(obj))</span><br><span class="line">		&#123;</span><br><span class="line">			instance.objectLookup[instance.prefabLookup[obj]].Add(obj);</span><br><span class="line">			instance.prefabLookup.Remove(obj);</span><br><span class="line">			obj.transform.parent = instance.transform;</span><br><span class="line">			obj.gameObject.SetActive(<span class="keyword">false</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			Object.Destroy(obj.gameObject);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> Count&lt;T&gt;(T prefab) <span class="keyword">where</span> T : Component</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (instance.objectLookup.ContainsKey(prefab))</span><br><span class="line">			<span class="keyword">return</span> instance.objectLookup[prefab].Count;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> ObjectPool instance</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">get</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (_instance != <span class="keyword">null</span>)</span><br><span class="line">				<span class="keyword">return</span> _instance;</span><br><span class="line">			<span class="keyword">var</span> obj = <span class="keyword">new</span> GameObject(<span class="string">"_ObjectPool"</span>);</span><br><span class="line">			obj.transform.localPosition = Vector3.zero;</span><br><span class="line">			_instance = obj.AddComponent&lt;ObjectPool&gt;();</span><br><span class="line">			<span class="keyword">return</span> _instance;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">ObjectPoolExtensions</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> CreatePool&lt;T&gt;(<span class="keyword">this</span> T prefab) <span class="keyword">where</span> T : Component</span><br><span class="line">	&#123;</span><br><span class="line">		ObjectPool.CreatePool(prefab);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> T Spawn&lt;T&gt;(<span class="keyword">this</span> T prefab, Vector3 position, Quaternion rotation) <span class="keyword">where</span> T : Component</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> ObjectPool.Spawn(prefab, position, rotation);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> T Spawn&lt;T&gt;(<span class="keyword">this</span> T prefab, Vector3 position) <span class="keyword">where</span> T : Component</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> ObjectPool.Spawn(prefab, position, Quaternion.identity);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> T Spawn&lt;T&gt;(<span class="keyword">this</span> T prefab) <span class="keyword">where</span> T : Component</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> ObjectPool.Spawn(prefab, Vector3.zero, Quaternion.identity);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> Recycle&lt;T&gt;(<span class="keyword">this</span> T obj) <span class="keyword">where</span> T : Component</span><br><span class="line">	&#123;</span><br><span class="line">		ObjectPool.Recycle(obj);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> Count&lt;T&gt;(T prefab) <span class="keyword">where</span> T : Component</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> ObjectPool.Count(prefab);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-android-些许记录" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/22/android-些许记录/" class="article-date">
+  	<time datetime="2016-04-22T05:25:58.000Z" itemprop="datePublished">2016-04-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/22/android-些许记录/">android 些许记录</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Android__u8BA1_u65F6_u5668_u7684_u4F7F_u7528"><a href="#Android__u8BA1_u65F6_u5668_u7684_u4F7F_u7528" class="headerlink" title="Android 计时器的使用"></a>Android 计时器的使用</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mTT = <span class="keyword">new</span> TimerTask() &#123;</span><br><span class="line">				@<span class="function">Override</span><br><span class="line">				<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">					Message msg = myHandler.obtainMessage();</span><br><span class="line">					msg.what = MESSAGE_SENDTO_SERVER;</span><br><span class="line">					myHandler.sendMessage(msg);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;;</span><br><span class="line">			mTimer.scheduleAtFixedRate(mTT, <span class="number">1</span>, <span class="number">4000</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>TimerTask  后面加要在计时器中todo的事情</li>
+<li>public void scheduleAtFixedRate(TimerTask task,<pre><code>Date firstTime,
+long period) 
+</code></pre></li>
+<li>task - task to be scheduled.<br>firstTime - First time at which task is to be executed.<br>period - time in milliseconds between successive task executions. </li>
+</ul>
+<h1 id="Android__u6444_u50CF_u673A_u9884_u89C8_u56FE_u7247_u4E0A_u4F20_u670D_u52A1_u5668"><a href="#Android__u6444_u50CF_u673A_u9884_u89C8_u56FE_u7247_u4E0A_u4F20_u670D_u52A1_u5668" class="headerlink" title="Android 摄像机预览图片上传服务器"></a>Android 摄像机预览图片上传服务器</h1><h2 id="u56FE_u7247_u5904_u7406"><a href="#u56FE_u7247_u5904_u7406" class="headerlink" title="图片处理"></a>图片处理</h2><ul>
+<li>在Camera.PreviewCallback方法中处理</li>
+<li>用YuvImage 获取图片和转化为jpg</li>
+<li>用Matrix 和 Bitmap 对图片进行高效处理<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Camera.PreviewCallback mPreviewCallback = <span class="keyword">new</span> Camera.PreviewCallback() &#123;</span><br><span class="line"></span><br><span class="line">		@Override</span><br><span class="line">		<span class="keyword">public</span> <span class="keyword">void</span> onPreviewFrame(<span class="built_in">byte</span>[] data, Camera <span class="built_in">camera</span>) &#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (!mNeedToSend) &#123;</span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			mNeedToSend = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">			Camera.Parameters parameters = <span class="built_in">camera</span>.getParameters();</span><br><span class="line"></span><br><span class="line">			<span class="comment">// Log.d(TAG, "frame updated...........:" + data.length);</span></span><br><span class="line">			Log.d(TAG, <span class="string">"Data sends to the server!"</span>);</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				YuvImage yuvImage = <span class="keyword">new</span> YuvImage(data,</span><br><span class="line">						parameters.getPreviewFormat(),</span><br><span class="line">						parameters.getPreviewSize().<span class="variable">width</span>,</span><br><span class="line">						parameters.getPreviewSize().<span class="variable">height</span>, <span class="keyword">null</span>);</span><br><span class="line">				ByteArrayOutputStream baos = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">				yuvImage.compressToJpeg(</span><br><span class="line">						<span class="keyword">new</span> Rect(<span class="number">0</span>, <span class="number">0</span>, parameters.getPreviewSize().<span class="variable">width</span>,</span><br><span class="line">								parameters.getPreviewSize().<span class="variable">height</span>), <span class="number">90</span>,</span><br><span class="line">						baos);</span><br><span class="line">				yuvImage = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">				<span class="built_in">byte</span> cdata[] = baos.toByteArray();</span><br><span class="line">				Bitmap bitmap = BitmapFactory.decodeByteArray(cdata, <span class="number">0</span>,</span><br><span class="line">						cdata.length);</span><br><span class="line">				baos.close();</span><br><span class="line">				baos = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">				Matrix matrix = <span class="keyword">new</span> Matrix();</span><br><span class="line">				matrix.postRotate(-<span class="number">90</span>);</span><br><span class="line">				matrix.postScale(-<span class="number">1</span>, -<span class="number">1</span>);</span><br><span class="line">				Bitmap rBitmap = Bitmap</span><br><span class="line">						.createBitmap(bitmap, <span class="number">0</span>, <span class="number">0</span>, bitmap.getWidth(),</span><br><span class="line">								bitmap.getHeight(), matrix, <span class="keyword">true</span>);</span><br><span class="line">				bitmap.recycle();</span><br><span class="line">				bitmap = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">				<span class="built_in">int</span> w = <span class="number">252</span>;</span><br><span class="line">				<span class="built_in">int</span> h = <span class="number">336</span>;</span><br><span class="line">				<span class="built_in">float</span> scaleWidth = ((<span class="built_in">float</span>) w) / rBitmap.getWidth();</span><br><span class="line">				<span class="built_in">float</span> scaleHeight = ((<span class="built_in">float</span>) h) / rBitmap.getHeight();</span><br><span class="line"></span><br><span class="line">				Matrix matrix2 = <span class="keyword">new</span> Matrix();</span><br><span class="line">				matrix2.postScale(scaleWidth, scaleHeight);</span><br><span class="line">				Bitmap rrrBitmap = Bitmap.createBitmap(rBitmap, <span class="number">0</span>, <span class="number">0</span>,</span><br><span class="line">						rBitmap.getWidth(), rBitmap.getHeight(), matrix2, <span class="keyword">true</span>);</span><br><span class="line">				Log.d(TAG,</span><br><span class="line">						<span class="string">"("</span> + rrrBitmap.getWidth() + <span class="string">","</span></span><br><span class="line">								+ rrrBitmap.getHeight() + <span class="string">")"</span>);</span><br><span class="line">				rBitmap.recycle();</span><br><span class="line">				rBitmap = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span> (<span class="keyword">null</span> != rrrBitmap) &#123;</span><br><span class="line"></span><br><span class="line">					ByteArrayOutputStream rbaos = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">					<span class="comment">//带缓冲区的输出流，能够提高文件的写入效率</span></span><br><span class="line">					BufferedOutputStream bos = <span class="keyword">new</span> BufferedOutputStream(rbaos);</span><br><span class="line">					rrrBitmap.compress(Bitmap.CompressFormat.JPEG, <span class="number">80</span>, bos);</span><br><span class="line"></span><br><span class="line">					bos.flush();</span><br><span class="line">					bos.close();</span><br><span class="line">					<span class="comment">// Send Data to server.</span></span><br><span class="line">					sendJpeg2Server(rbaos.toByteArray());</span><br><span class="line">					rbaos.close();</span><br><span class="line">					rrrBitmap.recycle();</span><br><span class="line">					rrrBitmap = <span class="keyword">null</span>;</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">			&#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-unity-给android-传递多参" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -753,121 +879,6 @@
       
         <p>由于编辑文章使用的是sublime无法直接插入图片，所以要在博客上面显示图片就需要找到图片位置显示<br>＃如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- &lt;img src=<span class="string">"img/minren.jpg"</span> alt=<span class="string">"ナルト"</span> height=<span class="string">"50"</span> width=<span class="string">"50"</span>&gt; --&gt;</span><br></pre></td></tr></table></figure></p>
 <p>＃就会显示<br><img src="img/minren.jpg" alt="ナルト" height="50" width="50"> </p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-部署Hexo到GitHub上" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/04/部署Hexo到GitHub上/" class="article-date">
-  	<time datetime="2016-01-04T02:47:34.000Z" itemprop="datePublished">2016-01-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/04/部署Hexo到GitHub上/">部署Hexo到GitHub上</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本地的博客已经搭建好了，如何能让别人从网上访问到你的博客？只要将你的本地博客deploy到GitHub上就好。输入以下指令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
-<p>然后打开博客目录的_config.yml文件，设置deploy的type为git，repository(repo)<br>为：<br>github.com/你的id/你的id.github.io.git（需要在type和repo后面加上一个空格再填写）。最后在你的Hexo目录中找到source文件夹，在其中新建一个文件CNAME，没有后缀名（建议使用Sublime Text新建），内容为你的域名（即ＸXXXXX．XXXXXX，不要加ＷＷＷ之类的前缀），保存。输入以下指令：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span><span class="class">.hexo</span> g</span><br><span class="line"><span class="number">2</span><span class="class">.hexo</span> deploy<span class="comment">//可简写为 hexo d</span></span><br></pre></td></tr></table></figure></p>
-<p>在浏览器中输入你自己的域名就可以访问你自己的博客啦！</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/01/hello-world/" class="article-date">
-  	<time datetime="2016-01-01T08:12:08.000Z" itemprop="datePublished">2016-01-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/01/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="u5F00_u59CB_u4E8EHello_World"><a href="#u5F00_u59CB_u4E8EHello_World" class="headerlink" title="开始于Hello World"></a>开始于Hello World</h1><h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
       
     </div>
