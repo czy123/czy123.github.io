@@ -113,7 +113,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/C/" style="font-size: 15px;">C#</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/unity/" style="font-size: 20px;">unity</a> <a href="/tags/游戏策划案/" style="font-size: 10px;">游戏策划案</a> <a href="/tags/转载/" style="font-size: 10px;">转载</a>
+						<a href="/tags/C/" style="font-size: 15px;">C#</a> <a href="/tags/Unity/" style="font-size: 10px;">Unity</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/unity/" style="font-size: 20px;">unity</a> <a href="/tags/untiy/" style="font-size: 10px;">untiy</a> <a href="/tags/游戏策划案/" style="font-size: 10px;">游戏策划案</a> <a href="/tags/转载/" style="font-size: 10px;">转载</a>
 					</div>
 				</section>
 				
@@ -184,6 +184,127 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-Behavior-Designer加强版的playmaker" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/05/Behavior-Designer加强版的playmaker/" class="article-date">
+  	<time datetime="2016-01-05T03:05:11.000Z" itemprop="datePublished">2016-01-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/05/Behavior-Designer加强版的playmaker/">Behavior Designer加强版的playmaker</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="playmaker_u53EF_u4EE5_u4F5C_u4E3A_u7B2C_u4E09_u65B9_u96C6_u6210_u5230Behavior_Designer_u4E2D_u4F7F_u7528_uFF0C"><a href="#playmaker_u53EF_u4EE5_u4F5C_u4E3A_u7B2C_u4E09_u65B9_u96C6_u6210_u5230Behavior_Designer_u4E2D_u4F7F_u7528_uFF0C" class="headerlink" title="playmaker可以作为第三方集成到Behavior Designer中使用，"></a>playmaker可以作为第三方集成到Behavior Designer中使用，</h1><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span>/<span class="regexp">/www.opsive.com/assets</span><span class="regexp">/BehaviorDesigner/documentation</span>.php?id=<span class="number">8</span></span><br></pre></td></tr></table></figure>
+<p>Behavior Designer插件里，主要有四种概念节点，都称之为Task。包括：<br><img src="/img/blogimgs/16010501.png" alt="16010501" height="20" width="20"> </p>
+<pre><code>1.Composites  组合节点，包括经典的：Sequence，Selector，Parallel
+
+2.Decorator 装饰节点，顾名思义，就是为仅有的一个子节点额外添加一些功能，比如让子task一直运行直到其返回某个运行状态值，或者将task的返回值取反等等
+
+3.Actions     行为节点，行为节点是真正做事的节点，其为叶节点。Behavior Designer插件中自带了不少Action节点，如果不够用，也可以编写自己的Action。一般来说都要编写自己的Action，除非用户是一个不懂脚本的美术或者策划，只想简单地控制一些物件的属性。
+
+4.Conditinals 条件节点 ，用于判断某条件是否成立。目前看来，是Behavior Designer为了贯彻职责单一的原则，将判断专门作为一个节点独立处理，比如判断某目标是否在视野内，其实在攻击的Action里面也可以写，但是这样Action就不单一了，不利于视野判断处理的复用。一般条件节点出现在Sequence控制节点中，其后紧跟条件成立后的Action节点。
+</code></pre><h1 id="u6309_u7167_u5B98_u65B9_u89C6_u9891_uFF0C_u5B9E_u73B0_u7B80_u5355_u7684_u4F8B_u5B50_uFF08http_3A//www-opsive-com/assets/BehaviorDesigner/videos-php_3Fid_3D3_uFF09"><a href="#u6309_u7167_u5B98_u65B9_u89C6_u9891_uFF0C_u5B9E_u73B0_u7B80_u5355_u7684_u4F8B_u5B50_uFF08http_3A//www-opsive-com/assets/BehaviorDesigner/videos-php_3Fid_3D3_uFF09" class="headerlink" title="按照官方视频，实现简单的例子（http://www.opsive.com/assets/BehaviorDesigner/videos.php?id=3）"></a>按照官方视频，实现简单的例子（<a href="http://www.opsive.com/assets/BehaviorDesigner/videos.php?id=3）" target="_blank" rel="external">http://www.opsive.com/assets/BehaviorDesigner/videos.php?id=3）</a></h1><h2 id="u65B0_u5EFA_u4E00_u4E2A_u573A_u666F_2C_u4E00_u4E2A_u7BAD_u5934_u6A21_u578B_uFF0C_u548C_u5176_u4ED6_u56DB_u4E2ASphere"><a href="#u65B0_u5EFA_u4E00_u4E2A_u573A_u666F_2C_u4E00_u4E2A_u7BAD_u5934_u6A21_u578B_uFF0C_u548C_u5176_u4ED6_u56DB_u4E2ASphere" class="headerlink" title="新建一个场景,一个箭头模型，和其他四个Sphere"></a>新建一个场景,一个箭头模型，和其他四个Sphere</h2><h3 id="u4E0B_u9762_u4EE3_u7801_u662F_u65B9_u5411_u6A21_u578B_u8981_u79FB_u52A8_u76EE_u6807_u7684_u5224_u5B9A_uFF0C_u7EE7_u627F_u4E8EConditional"><a href="#u4E0B_u9762_u4EE3_u7801_u662F_u65B9_u5411_u6A21_u578B_u8981_u79FB_u52A8_u76EE_u6807_u7684_u5224_u5B9A_uFF0C_u7EE7_u627F_u4E8EConditional" class="headerlink" title="下面代码是方向模型要移动目标的判定，继承于Conditional"></a>下面代码是方向模型要移动目标的判定，继承于Conditional</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line">using BehaviorDesigner.Runtime;</span><br><span class="line">using BehaviorDesigner.Runtime.Tasks;</span><br><span class="line"></span><br><span class="line">public class Waitsignt : Conditional &#123;</span><br><span class="line">	public <span class="built_in">float</span> fieldofviewangle;</span><br><span class="line">	public string targettag;</span><br><span class="line">	public SharedTransform target;</span><br><span class="line"></span><br><span class="line">	private Transform[] possibletargets;</span><br><span class="line"></span><br><span class="line">	public override	void <span class="function"><span class="title">OnAwake</span></span> ()</span><br><span class="line">	&#123;</span><br><span class="line">		var targets = GameObject.FindGameObjectsWithTag (targettag);</span><br><span class="line">		possibletargets = new Transform[targets.Length];</span><br><span class="line">		<span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; targets.Length; i++) &#123;</span><br><span class="line">			possibletargets[i] = targets[i].transform;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public override TaskStatus <span class="function"><span class="title">OnUpdate</span></span> ()</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; possibletargets.Length; ++i) &#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (withinsight (possibletargets [i], fieldofviewangle)) &#123;</span><br><span class="line">				</span><br><span class="line">				target.Value = possibletargets[i];</span><br><span class="line">				Debug.Log (target.Value );</span><br><span class="line">				<span class="built_in">return</span> TaskStatus.Success;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">return</span> TaskStatus.Failure;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public bool withinsight (Transform targetTransform, <span class="built_in">float</span> filedofViewAngle)</span><br><span class="line">	&#123;</span><br><span class="line">		Vector3 dirction = targetTransform.position - transform.position;</span><br><span class="line">		<span class="built_in">return</span> Vector3.Angle (dirction,transform.forward)&lt;filedofViewAngle;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="u4E0B_u9762_u4EE3_u7801_u662F_u65B9_u5411_u6A21_u578B_u8981_u79FB_u52A8_u5230_u76EE_u6807_u7684_u4EE3_u7801_uFF0C_u7EE7_u627F_u4E8EAction"><a href="#u4E0B_u9762_u4EE3_u7801_u662F_u65B9_u5411_u6A21_u578B_u8981_u79FB_u52A8_u5230_u76EE_u6807_u7684_u4EE3_u7801_uFF0C_u7EE7_u627F_u4E8EAction" class="headerlink" title="下面代码是方向模型要移动到目标的代码，继承于Action"></a>下面代码是方向模型要移动到目标的代码，继承于Action</h3><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line">using BehaviorDesigner.Runtime.Tasks;</span><br><span class="line">using BehaviorDesigner.Runtime;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> Eventtype : <span class="keyword">Action</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">float</span> speed = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">public</span> SharedTransform <span class="type">target</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> override TaskStatus OnUpdate ()</span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (Vector3.SqrMagnitude (transform.<span class="keyword">position</span> - <span class="type">target</span>.<span class="keyword">Value</span>.<span class="keyword">position</span>) &lt; <span class="number">0.</span>f) &#123;</span><br><span class="line">			<span class="keyword">return</span> TaskStatus.Success;</span><br><span class="line">		&#125;</span><br><span class="line">		transform.<span class="keyword">position</span> = Vector3.MoveTowards (transform.<span class="keyword">position</span>,<span class="type">target</span>.<span class="keyword">Value</span>.<span class="keyword">position</span>,speed*Time.deltaTime);</span><br><span class="line">		transform.LookAt (<span class="type">target</span>.<span class="keyword">Value</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> TaskStatus.Running;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="u5728unity_u6253_u5F00Behavior_Designer_uFF0C_u5728task_u4E2D_u627E_u5230_u5BF9_u5E94"><a href="#u5728unity_u6253_u5F00Behavior_Designer_uFF0C_u5728task_u4E2D_u627E_u5230_u5BF9_u5E94" class="headerlink" title="在unity打开Behavior Designer，在task中找到对应"></a>在unity打开Behavior Designer，在task中找到对应</h3><p><img src="/img/blogimgs/16010502.png" alt="16010501" height="20" width="20"> </p>
+<h3 id="u573A_u666F_u4E2D_u7684_u56DB_u4E2ASphere_tag_u8BBE_u7F6E_u6210Target_2C_u5728Behavior_Designer_Variables_u589E_u52A0_u4E00_u4E2A_u7C7B_u578B_u4E3Atransform_u540D_u5B57_u4E3ATarget_u7684_u5168_u5C40_u503C_uFF0C_u4F1A_u5728_u4EE3_u7801_u4E2DSharedTransform__u4E2D_u663E_u793A"><a href="#u573A_u666F_u4E2D_u7684_u56DB_u4E2ASphere_tag_u8BBE_u7F6E_u6210Target_2C_u5728Behavior_Designer_Variables_u589E_u52A0_u4E00_u4E2A_u7C7B_u578B_u4E3Atransform_u540D_u5B57_u4E3ATarget_u7684_u5168_u5C40_u503C_uFF0C_u4F1A_u5728_u4EE3_u7801_u4E2DSharedTransform__u4E2D_u663E_u793A" class="headerlink" title="场景中的四个Sphere tag设置成Target,在Behavior Designer Variables增加一个类型为transform名字为Target的全局值，会在代码中SharedTransform 中显示"></a>场景中的四个Sphere tag设置成Target,在Behavior Designer Variables增加一个类型为transform名字为Target的全局值，会在代码中SharedTransform 中显示</h3><h1 id="Waitsignt__u5C5E_u6027"><a href="#Waitsignt__u5C5E_u6027" class="headerlink" title="Waitsignt 属性"></a>Waitsignt 属性</h1><p><img src="/img/blogimgs/16010503.png" alt="16010501" height="20" width="20"> </p>
+<h1 id="Eventtype__u5C5E_u6027"><a href="#Eventtype__u5C5E_u6027" class="headerlink" title="Eventtype 属性"></a>Eventtype 属性</h1><p><img src="/img/blogimgs/16010504.png" alt="16010501" height="20" width="20"> </p>
+<p>运行就可以看到官网例子效果了</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-在博客上面显示图片" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/05/在博客上面显示图片/" class="article-date">
+  	<time datetime="2016-01-05T02:46:02.000Z" itemprop="datePublished">2016-01-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/05/在博客上面显示图片/">在博客上面显示图片</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>由于编辑文章使用的是sublime无法直接插入图片，所以要在博客上面显示图片就需要找到图片位置显示<br>＃如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- &lt;img src=<span class="string">"img/minren.jpg"</span> alt=<span class="string">"ナルト"</span> height=<span class="string">"50"</span> width=<span class="string">"50"</span>&gt; --&gt;</span><br></pre></td></tr></table></figure></p>
+<p>＃就会显示<br><img src="img/minren.jpg" alt="ナルト" height="50" width="50"> </p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-部署Hexo到GitHub上" class="article article-type-post" itemscope itemprop="blogPost">
   
