@@ -8,20 +8,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="lua脚本以txt的形式存储在Resources 下面
 用LuaSvr svr  svr.start调用到脚本 
-用 svr.luaState.getFunction(“foo”).call 来调用到里面的方法">
+用 svr.luaState.getFunction(“foo”).call 来调用到里面的方法
+
+lua
+Table – 是一个Key Value的数据结构
+Lua内建约定
+
+123456789101112131415__add(a, b)                     对">
 <meta property="og:type" content="article">
 <meta property="og:title" content="unity lua －1 最开始调用">
 <meta property="og:url" content="http://yoursite.com/2016/06/12/c-lua-－1-最开始调用/index.html">
 <meta property="og:site_name" content="Chen'Blogs">
 <meta property="og:description" content="lua脚本以txt的形式存储在Resources 下面
 用LuaSvr svr  svr.start调用到脚本 
-用 svr.luaState.getFunction(“foo”).call 来调用到里面的方法">
-<meta property="og:updated_time" content="2016-06-12T08:42:09.000Z">
+用 svr.luaState.getFunction(“foo”).call 来调用到里面的方法
+
+lua
+Table – 是一个Key Value的数据结构
+Lua内建约定
+
+123456789101112131415__add(a, b)                     对">
+<meta property="og:updated_time" content="2016-06-23T07:57:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="unity lua －1 最开始调用">
 <meta name="twitter:description" content="lua脚本以txt的形式存储在Resources 下面
 用LuaSvr svr  svr.start调用到脚本 
-用 svr.luaState.getFunction(“foo”).call 来调用到里面的方法">
+用 svr.luaState.getFunction(“foo”).call 来调用到里面的方法
+
+lua
+Table – 是一个Key Value的数据结构
+Lua内建约定
+
+123456789101112131415__add(a, b)                     对">
   
     <link rel="alternative" href="/atom.xml" title="Chen&#39;Blogs" type="application/atom+xml">
   
@@ -120,7 +138,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/C/" style="font-size: 15px;">C#</a> <a href="/tags/Unity/" style="font-size: 10px;">Unity</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/unity/" style="font-size: 20px;">unity</a> <a href="/tags/untiy/" style="font-size: 10px;">untiy</a> <a href="/tags/游戏策划案/" style="font-size: 10px;">游戏策划案</a> <a href="/tags/转载/" style="font-size: 10px;">转载</a>
+						<a href="/tags/C/" style="font-size: 15px;">C#</a> <a href="/tags/Unity/" style="font-size: 10px;">Unity</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/unity/" style="font-size: 20px;">unity</a> <a href="/tags/unity-shader/" style="font-size: 10px;">unity shader</a> <a href="/tags/untiy/" style="font-size: 10px;">untiy</a> <a href="/tags/游戏策划案/" style="font-size: 10px;">游戏策划案</a> <a href="/tags/转载/" style="font-size: 10px;">转载</a>
 					</div>
 				</section>
 				
@@ -232,6 +250,19 @@
 <li>用LuaSvr svr  svr.start调用到脚本 </li>
 <li>用 svr.luaState.getFunction(“foo”).call 来调用到里面的方法</li>
 </ul>
+<h1 id="lua"><a href="#lua" class="headerlink" title="lua"></a>lua</h1><ul>
+<li>Table – 是一个Key Value的数据结构</li>
+<li>Lua内建约定</li>
+</ul>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">__add(<span class="operator">a</span>, b)                     对应表达式 <span class="operator">a</span> + b</span><br><span class="line">__sub(<span class="operator">a</span>, b)                     对应表达式 <span class="operator">a</span> - b</span><br><span class="line">__mul(<span class="operator">a</span>, b)                     对应表达式 <span class="operator">a</span> * b</span><br><span class="line">__div(<span class="operator">a</span>, b)                     对应表达式 <span class="operator">a</span> / b</span><br><span class="line">__mod(<span class="operator">a</span>, b)                     对应表达式 <span class="operator">a</span> % b</span><br><span class="line">__pow(<span class="operator">a</span>, b)                     对应表达式 <span class="operator">a</span> ^ b</span><br><span class="line">__unm(<span class="operator">a</span>)                        对应表达式 -<span class="operator">a</span></span><br><span class="line">__concat(<span class="operator">a</span>, b)                  对应表达式 <span class="operator">a</span> .. b</span><br><span class="line">__len(<span class="operator">a</span>)                        对应表达式 <span class="comment">#a</span></span><br><span class="line">__eq(<span class="operator">a</span>, b)                      对应表达式 <span class="operator">a</span> == b</span><br><span class="line">__lt(<span class="operator">a</span>, b)                      对应表达式 <span class="operator">a</span> &lt; b</span><br><span class="line">__le(<span class="operator">a</span>, b)                      对应表达式 <span class="operator">a</span> &lt;= b</span><br><span class="line">__index(<span class="operator">a</span>, b)                   对应表达式 <span class="operator">a</span>.b</span><br><span class="line">__newindex(<span class="operator">a</span>, b, c)             对应表达式 <span class="operator">a</span>.b = c</span><br><span class="line">__call(<span class="operator">a</span>, ...)                  对应表达式 <span class="operator">a</span>(...)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>lua 面向对象</li>
+</ul>
+<figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">Person=&#123;&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>:</span><span class="keyword">new</span>(p)</span><br><span class="line">    <span class="keyword">local</span> obj = p</span><br><span class="line">    <span class="keyword">if</span> (obj == nil) <span class="keyword">then</span></span><br><span class="line">        obj = &#123;name=<span class="string">"ChenHao"</span>, age=<span class="number">37</span>, handsome=<span class="literal">true</span>&#125;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="variable">self</span>.__index = <span class="variable">self</span></span><br><span class="line">    <span class="keyword">return</span> setmetatable(obj, <span class="variable">self</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>:</span>toString()</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">self</span>.name ..<span class="string">" : "</span>.. <span class="variable">self</span>.age ..<span class="string">" : "</span>.. (<span class="variable">self</span>.handsome <span class="literal">and</span> <span class="string">"handsome"</span> <span class="literal">or</span> <span class="string">"ugly"</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">上面我们可以看到有一个<span class="keyword">new</span>方法和一个toString的方法。其中：</span><br><span class="line"><span class="number">1</span>）<span class="variable">self</span> 就是 Person，Person:<span class="keyword">new</span>(p)，相当于Person.<span class="keyword">new</span>(<span class="variable">self</span>, p)</span><br><span class="line"><span class="number">2</span>）<span class="keyword">new</span>方法的<span class="variable">self</span>.__index = <span class="variable">self</span> 的意图是怕<span class="variable">self</span>被扩展后改写，所以，让其保持原样</span><br><span class="line"><span class="number">3</span>）setmetatable这个函数返回的是第一个参数的值。</span><br><span class="line">于是：我们可以这样调用：</span><br><span class="line">复制代码 代码如下:</span><br><span class="line"></span><br><span class="line">me = Person:<span class="keyword">new</span>()</span><br><span class="line"><span class="built_in">print</span>(me:toString())</span><br><span class="line"> </span><br><span class="line">kf = Person:<span class="keyword">new</span>&#123;name=<span class="string">"King's fucking"</span>, age=<span class="number">70</span>, handsome=<span class="literal">false</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(kf:toString())</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用外部lua文件</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">我们有一个hello.lua的文件：</span><br><span class="line">复制代码 代码如下:</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"Hello, World!"</span>)</span></span></span><br><span class="line">如果我们：<span class="function"><span class="title">require</span><span class="params">(“hello”)</span></span>，那么就直接输出Hello, World！了。</span><br><span class="line">注意：</span><br><span class="line"><span class="number">1</span>）require函数，载入同样的lua文件时，只有第一次的时候会去执行，后面的相同的都不执行了。</span><br><span class="line"><span class="number">2</span>）如果你要让每一次文件都会执行的话，你可以使用<span class="function"><span class="title">dofile</span><span class="params">(“hello”)</span></span>函数</span><br><span class="line"><span class="number">3</span>）如果你要玩载入后不执行，等你需要的时候执行时，你可以使用 <span class="function"><span class="title">loadfile</span><span class="params">()</span></span>函数，如下所示：</span><br><span class="line">复制代码 代码如下:</span><br><span class="line"></span><br><span class="line">local hello = <span class="function"><span class="title">loadfile</span><span class="params">(<span class="string">"hello"</span>)</span></span></span><br><span class="line">... ...</span><br><span class="line">... ...</span><br><span class="line"><span class="function"><span class="title">hello</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -312,7 +343,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 Chenzhiyang
+    		&copy; 2017 Chenzhiyang
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
